@@ -1,0 +1,77 @@
+/*
+ZIRIX CONTROL CENTER - ESTILOS DO MODAL
+DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+
+DESENVOLVEDOR: RAPHAEL B. MARQUES
+TECNOLOGIAS UTILIZADAS: CSS
+*/
+
+/*Tab*/
+.tab-pane{
+    display: none;
+}
+.tab-pane.active{
+    display: block;
+}
+#modal .modal-content .outer_form{
+    float: left;
+    width: 750px;
+    background: #eeeeee;
+    border-radius: 4px;
+    border: 4px solid #eeeeee;
+}
+#modal .tab-content{
+    float: none;
+    width: 100%;
+    background: #eeeeee;
+}
+
+#modal ul.nav.nav-tabs{
+    width: 100%;
+    list-style-type: none;
+    background: #6c6c6c;
+    margin: 0;
+    padding: 0;
+    float: left;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#modal ul.nav.nav-tabs li{
+    width: auto;
+    display: inline-block;
+    float: left;
+    margin: 1px 3px 0 0;
+}
+
+#modal ul.nav.nav-tabs li:first-child{
+    margin-left: 3px;
+}
+
+#modal ul.nav.nav-tabs li a{
+    background: #dbdcd8;
+    color: #6c6c6c;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 7px 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    float: left;
+    border:1px solid #6c6c6c;
+}
+
+#modal ul.nav.nav-tabs li a:hover,
+#modal ul.nav.nav-tabs li.active a{
+    background: rgba(190, 36, 4, 0.7);
+    color: #dbdcd8;
+    text-decoration: none;
+}
+
+#modal .tab-content{
+    float: left;
+    padding: 15px 21px;
+}
+#modal .tab-content fieldset input{
+    margin: 2px;
+    padding: 1px 0;
+}

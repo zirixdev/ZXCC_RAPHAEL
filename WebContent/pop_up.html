@@ -1,0 +1,62 @@
+<!--
+ZIRIX CONTROL CENTER - MODAL PAGE
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+
+DESENVOLVEDOR: RAPHAEL B. MARQUES
+TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E AJAX
+-->
+
+<!--Operacional -> Consulta-->
+<div id="operacional-consulta-content">
+    <form>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#aba_consulta" data-toggle="tab">Consulta</a></li>
+        </ul>   
+        <div class="tab-content"> 
+            <div class="tab-pane active" id="aba_Consulta">
+                <fieldset class="field">
+                    <input type="radio" name="busca_op" value="cliente" onchange="change_consulta_operacional_function()">Cliente
+                    <input type="radio" name="busca_op" value="equipamento" onchange="change_consulta_operacional_function()">Equipamento
+                    <input type="radio" name="busca_op" value="chip" onchange="change_consulta_operacional_function()">Sim Card
+                    <input type="radio" name="busca_op" value="os" onchange="change_consulta_operacional_function()">Ordem de Serviço
+                    <br>
+                    <div class="consulta_operacional">
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--Comercial -> Consulta-->
+<div id="comercial-consulta-content">
+    <form>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#aba_consulta" data-toggle="tab">Consulta</a></li>
+        </ul>   
+        <div class="tab-content"> 
+            <div class="tab-pane active" id="aba_Consulta">
+                <fieldset class="field">
+                    <input type="radio" name="busca_com" value="cliente" onchange="change_consulta_comercial_function()">Cliente
+                    <input type="radio" name="busca_com" value="pedido" onchange="change_consulta_comercial_function()" disabled="disabled">Pedido
+                    <br>
+                    <div class="consulta_comercial">
+
+                    </div>
+                </fieldset>
+            </div>
+            <button type="button" id="consultar_modal" value="Consultar" onclick="comercial_consulta_function()">Consultar</button>
+            <button type="button" id="cancel_modal">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<!--EM CONSTRUÇÃO-->
+<div id="em-construcao-content">
+    <div> 
+        <div class="under_construct">
+            <img src="imagens/zx_cc_construcao.jpg" width="750" height="458" id="cancel_modal">
+        </div>
+    </div>
+</div>

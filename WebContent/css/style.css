@@ -1,0 +1,209 @@
+/*
+ZIRIX CONTROL CENTER - ESTILOS DA PÁGINA
+DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+
+DESENVOLVEDOR: RAPHAEL B. MARQUES
+TECNOLOGIAS UTILIZADAS: CSS
+*/
+
+body{
+    background: url("../imagens/zx_cc_background2.jpg");
+    margin: 0;
+}
+
+header {
+    background-image: url("../imagens/header.jpg");
+    width: 100%;
+    height: 134px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-repeat: no-repeat no-repeat;
+}
+
+.container_login{
+    background: #FFFFFF;
+    width:1280px;
+    margin: 0 auto;
+    font:16px MyriadWebPro;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.container{
+    background: #FFFFFF;
+    width:1280px;
+    margin: 0 auto;
+    font:16px MyriadWebPro;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.login_form{
+    position: relative;
+    color: #fff;
+    margin: 0 auto;
+    font:16px MyriadWebPro;
+}
+
+.fields_form{
+    position: absolute;
+    left: 0px;
+    top: 470px;
+    text-align:center;
+    width: 1280px;
+}
+
+.container .page-background{
+    background: white;
+    float: left;
+}
+
+.login_fields{
+    z-index: 3;
+}
+
+.conteudo{
+    background: #FFFFFF;
+    width:720px;
+    float: left;    
+}
+
+.tarefas{
+    width:510px;
+    height:100%;
+    float: right;
+    background: #dbdcd8;
+    text-align: center;
+    -webkit-border-radius: 15px;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius: 15px;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+footer {
+    width: 100%;
+    height: 31px;
+    float: left;
+    background-image: url("../imagens/footer.jpg");
+    -webkit-border-bottom-right-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top: 1px;
+    border-top-style: solid;
+    border-top-color: red;
+}
+footer h1 {
+    visibility: hidden;
+}
+
+.field_equip{ 
+    width:400px; 
+    top: 15%;
+	float: left;
+    border-width: 2px;
+    border-style: groove; 
+    border-color: rgb(192, 192, 192);
+}
+
+.field{ 
+    width:700px;
+    border-width: 2px;
+    border-style: groove; 
+    border-color: rgb(192, 192, 192);
+}
+
+.fieldinner{
+    width: 100%;
+    border-width: 2px;
+    border-style:  groove; 
+    border-color: rgb(192, 192, 192);    
+}
+
+textarea{
+    resize: none;
+}
+
+#modal{
+    background: transparent;
+}
+
+#modal .modal-dialog{
+    margin: 0;
+    width: 100%;
+    background: transparent;
+}
+
+#modal .modal-content{
+    width: 750px;
+    margin: 2% auto 0;
+    float: none;
+}
+
+.under_construct{
+    height: 100%;
+    width: 100%;
+}
+
+#chip_instalado{
+    width:18px;
+    height:23px;
+    background-color:rgb(219, 220, 221);
+    -moz-box-shadow:2px 2px 2px rgb(108, 108, 108);
+    -webkit-box-shadow:2px 2px 2px rgb(108, 108, 108);
+    box-shadow:2px 2px 2px rgb(108, 108, 108);
+    cursor: pointer;
+}
+
+.div_inseridos div{
+    display: inline-block;
+}
+
+.class_oculta{
+	visibility: hidden;
+}
+
+.fild_vendedor{
+	width: 200px; 
+    float: right;
+    border: none;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.div_modal_bt{
+	float: left;
+	vertical-align: bottom;
+}
+
+.div_img_chip{
+	float: right;
+	vertical-align: middle;
+	width: 180px;
+	height: 234px;
+	background: url("../imagens/img_chip.png");
+	z-index: 2;
+}
+
+.field_control{
+    width:700px;
+	border: none;
+	vertical-align: middle;
+	margin: 0cm;
+	padding: 0cm;
+}

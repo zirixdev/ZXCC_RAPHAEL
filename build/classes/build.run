@@ -1,0 +1,3 @@
+javac -cp ../../../lib/javax.mail-1.5.2.jar:../../../lib/admailer_beta-0-2.jar  zirix/zxcc/cron/ZXAlerter.java -d ../build/
+java -cp ../build/:../../../lib/javax.mail-1.5.2.jar:../../../lib/admailer_beta-0-2.jar  zirix.zxcc.cron.ZXAlerter
+jar -cmf META-INF/MANIFEST.MF zxccalerter_beta-0-2.jar  zirix/

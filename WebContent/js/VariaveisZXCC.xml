@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--<parametros>
+	<db_name>ZX_CC_PROD.</db_name>
+	<adress>http://www.zirix.com/zxcc/</adress>
+	<local>PROD</local>
+</parametros>-->
+<parametros>
+	<db_name>ZX_CC_DEV.</db_name>
+	<adress>http://127.0.0.1:8080/zxcc/</adress>
+	<local>DEV</local>
+</parametros>
+ <!--<parametros>
+	<db_name>ZX_CC_QA.</db_name>
+	<adress>http://www.zirix.com/zxcc/</adress>
+	<local>PROD</local>
+</parametros>-->

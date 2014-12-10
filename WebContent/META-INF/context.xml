@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/APP_NAME">
+    <Resource name="jdbc/poolConn"
+            auth="Container"
+            driverClassName="com.mysql.jdbc.Driver"
+            maxactive="100"
+            maxidle="30"
+            maxwait="10000"            
+            type="javax.sql.DataSource"
+            username="root"
+            password="pinguim01"
+            url="jdbc:mysql://127.0.0.1:3306/ZX_CC_DEV">
+    </Resource>
+</Context>

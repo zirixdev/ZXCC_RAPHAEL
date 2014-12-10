@@ -1,0 +1,289 @@
+/*
+ZIRIX CONTROL CENTER - ESTILO DOS MENUS
+DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+
+DESENVOLVEDOR: RAPHAEL B. MARQUES
+TECNOLOGIAS UTILIZADAS: CSS
+*/
+
+/* JS disabled styles */
+.no-js nav li:hover ul {
+    display:block;
+}
+
+ /* base nav styles */
+nav {
+    display:block;
+    margin:0 auto 20px;
+    border:0px solid #000;
+    position:relative;
+    background-color:#FFFFFF;
+    font:14px MyriadWebPro;
+    width:760px;
+    float:left;
+}
+
+nav ul {
+    padding:0;
+    margin:0;
+}
+
+nav li {
+    position:relative;
+    float:left;
+    list-style-type:none;
+}
+
+nav ul:after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+
+nav li a {
+    display:block;
+    padding:10px 20px;
+    border-left:0px solid #999;
+    border-right:0px solid #222;
+    color:#eee;
+    text-decoration:none;
+}
+
+nav li a:hover{
+    text-decoration: none;
+    color: #eee;
+    cursor: pointer;
+}
+
+nav li a:focus {
+    outline:none;
+    text-decoration:underline;
+}
+
+nav li:first-child a {
+    border-left:none;
+}
+
+nav li.last a {
+    border-right:none;
+}
+
+nav a span {
+    display:block;
+    float:right;
+    margin-left:5px;
+}
+
+nav ul ul {
+    display:none;
+    width:100%;
+    position:absolute;
+    left:0;
+    background:#be232a;
+}
+
+nav ul ul li {
+    float:none;
+}
+
+nav ul ul a {
+    padding:5px 10px;
+    border-left:none;
+    border-right:none;
+    font-size:14px;
+}
+
+nav ul ul a:hover {
+    background-color: #555;
+}
+
+.ul-submenu-filho li a:hover{
+    color:#fff
+}
+
+/* CSS3 */
+.borderradius nav {
+    -moz-border-radius:4px;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    border-radius:4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.cssgradients nav {
+    background-image:-moz-linear-gradient(0% 22px 90deg, #be232a, #be232a);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 70%, from(#be232a),to(#be232a));
+}
+
+.boxshadow.rgba nav {
+    -moz-box-shadow:2px 2px 2px rgb(51, 51, 51);
+    -webkit-box-shadow:2px 2px 2px rgb(51, 51, 51);
+    box-shadow:2px 2px 2px rgb(51, 51, 51);
+}
+
+.cssgradients nav li:hover {
+    background-image:-moz-linear-gradient(0% 100px 90deg, #be232a, #be232a);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#be232a), to(#be232a));
+}
+
+.borderradius nav ul ul {
+    -moz-border-radius-bottomleft:4px;
+    -moz-border-radius-bottomright:4px;
+    -webkit-border-bottom-left-radius:4px;
+    -webkit-border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+}
+
+.boxshadow.rgba nav ul ul ul{
+    background-color:rgb(219, 220, 221);
+    -moz-box-shadow:2px 2px 2px rgb(108, 108, 108);
+    -webkit-box-shadow:2px 2px 2px rgb(108, 108, 108);
+    box-shadow:2px 2px 2px rgb(108, 108, 108);
+}
+
+.boxshadow.rgba nav ul ul {
+    background-color:rgb(108, 108, 108);
+    -moz-box-shadow:2px 2px 2px rgb(108, 108, 108);
+    -webkit-box-shadow:2px 2px 2px rgb(108, 108, 108);
+    box-shadow:2px 2px 2px rgb(108, 108, 108);
+}
+
+.rgba nav ul ul li {
+    border-left:0px solid rgb(0,0,0);
+    border-right:0px solid rgb(0,0,0);
+}
+
+.rgba nav ul ul a:hover {
+    background-color:rgb(190,36,42);
+}
+
+.borderradius.rgba nav ul ul li.last {
+    border-left:1px solid rgba(0,0,0,0.1);
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    -moz-border-radius-bottomleft:4px;
+    -moz-border-radius-bottomright:4px;
+    -webkit-border-bottom-left-radius:4px;
+    -webkit-border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+}
+
+.csstransforms ul a span {
+    -moz-transform:rotate(-180deg);
+    -webkit-transform:rotate(-180deg);
+}
+
+/* fallbacks */
+.no-cssgradients nav,
+.no-js nav {
+    padding-bottom:4px;
+    border:none;
+    background:url(../fallback/navBG.gif) repeat-x 0 0;
+}
+
+.no-borderradius nav ul,
+.no-js nav ul {
+    background:url(../fallback/navRight.gif) no-repeat 100% 0;
+}
+
+.no-borderradius nav ul ul,
+.no-js nav ul ul {
+    background:none;
+}
+
+.no-borderradius nav li,
+.no-js nav li {
+    height:44px;
+}
+
+.no-cssgradients nav li:hover,
+.no-js nav li:hover {
+    background:url(../fallback/navOverBG.gif) repeat-x 0 0;
+}
+
+.no-borderradius nav li li,
+.no-js nav li li {
+    height:auto;
+    width:98%;
+    left:-2px;
+}
+
+.no-borderradius nav li:first-child,
+.no-js nav li:first-child {
+    background:url(../fallback/navLeft.gif) no-repeat 0 0;
+}
+
+.no-borderradius nav li:first-child:hover,
+.no-js nav li:first-child:hover {
+    background:url(../fallback/navOverLeft.gif) no-repeat 0 0;
+}
+.no-borderradius nav li li:first-child,
+.no-js nav li li:first-child {
+    background:none;
+}
+
+.no-rgba nav ul ul,
+.no-js nav ul ul {
+    left:1px;
+    padding-left:2px;
+    background:url(../fallback/subnavBG.png) no-repeat 100% 100%;
+}
+
+.no-rgba nav ul ul a,
+.no-js nav ul ul a {
+    left:3px;
+}
+
+.no-rgba nav ul ul a:hover {
+    background:url(../fallback/subOverBG.png) repeat 0 0;
+}
+
+.no-csstransforms ul a span {
+    height:7px;
+    width:12px;
+    margin-top:8px;
+    text-indent:-5000px;
+    overflow:hidden;
+    background:url(../fallback/indicator.png) no-repeat 0 0;
+}
+
+.no-borderradius ul ul li.last {
+    margin-bottom:10px;
+}
+
+.no-cssgradients.boxshadow nav {
+    box-shadow:none;
+}
+
+.ul-submenu-filho{
+    left: 85px;
+    float: left;
+    position: absolute;
+    z-index: 102;
+}
+
+.li-submenu ul li a{
+    color: #6c6c6c;
+}
+
+.li-submenu-last ul li a{
+    color: #6c6c6c;
+}
+
+.li-submenu-last {
+    border-left:2px solid rgba(0,0,0,0.1);
+    border-bottom:2px solid rgba(0,0,0,0.1);
+    -moz-border-radius-bottomleft:4px;
+    -moz-border-radius-bottomright:4px;
+    -webkit-border-bottom-left-radius:4px;
+    -webkit-border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+}
