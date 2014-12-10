@@ -52,7 +52,7 @@ public class ZxAccessControlBean {
 					+ "                                                          WHERE " + ZXMain.DB_NAME_ + "PERMISSAO_USUARIO.COD_USUARIO = " + COD_USUARIO_);
 
 		    for (int i=0;i < values.size();i++) {
-			    String[] attList = new String[2]; // pois eu sei que sao 2 atributos de fato !
+			    String[] attList = new String[2];
 			    attList[0] = values.get(i)[0].toString();
 			    attList[1] = values.get(i)[1].toString();
 			    PermissaoUsuario.add(attList);
@@ -72,7 +72,7 @@ public class ZxAccessControlBean {
 					+ "                                                           FROM " + ZXMain.DB_NAME_ + "TELA ");
 
 		    for (int i=0;i < values.size();i++) {
-			    String[] attList = new String[1]; // pois eu sei que � 1 atributo de fato !
+			    String[] attList = new String[1];
 			    attList[0] = values.get(i)[0].toString();
 			    CodTela.add(attList);
 		    }

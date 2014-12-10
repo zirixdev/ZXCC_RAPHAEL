@@ -8,10 +8,15 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 -->
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ page import="zirix.zxcc.server.*,zirix.zxcc.server.dao.*,java.sql.SQLException,java.util.Vector" %>
-
 <%
-	String pkVal = request.getParameter("COD_USUARIO");
-	ScheduleBean bean = new ScheduleBean(pkVal);
+	String user = null;
+	if(session.getAttribute("user") == null){
+		response.setContentType("text/html");
+		response.sendRedirect("index.html");
+	}else{
+		user = (String) session.getAttribute("user");
+	}
+	ScheduleBean bean = new ScheduleBean(user);
 %>
 <html lang="pt-br">  
     <head>
@@ -22,7 +27,7 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 	<body>        
         <header>
        		<h3 align="center">TAREFAS</h3>
-       		<div id="cod_usuario" style="visibility: hidden;"><%=pkVal%></div>
+       		<div id="cod_usuario" style="visibility: hidden;"><%=user%></div>
         </header>
 		<%Vector<String[]> workList = bean.getWork();
 		for (int i=0;i < workList.size();i++) {%>

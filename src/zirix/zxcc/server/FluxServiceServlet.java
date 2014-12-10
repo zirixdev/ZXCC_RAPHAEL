@@ -28,7 +28,6 @@ public class FluxServiceServlet extends HttpServlet {
 	   response.setContentType("text/html");
 	   PrintWriter out = response.getWriter();
 	   String OP_CODE = request.getParameter("OP_CODE");
-	   String COD_USUARIO = request.getParameter("COD_USUARIO").trim();
 	   try{
 		   int PROCESS_ID;
 		   Vector<String[]> CodProcessWork = new Vector<String[]>();
@@ -78,7 +77,7 @@ public class FluxServiceServlet extends HttpServlet {
 	   catch (Exception e){
 		   out.println("Error on FluxServiceServlet... " + e.getMessage());
 	   }
-	   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+	   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 }

@@ -10,10 +10,14 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ page import="zirix.zxcc.server.*,zirix.zxcc.server.dao.*,java.sql.SQLException,java.util.Vector" %>
 <%
-String TIPO_CONSULTA = request.getParameter("TIPO_CONSULTA"); //NOME, DOCUMENTO, NUMERO_OS, ETC...
-String KEY = request.getParameter("KEY");
-//Carregar o devido bean. Criar um para que dê o retorno com o nome de qual utilizar
-//ou cria-se um genérico que na construção dele ele mesmo saiba qual utilizar (complexo).
+	int temListaOs = Integer.parseInt(session.getAttribute("temListaOs").toString());
+	String TIPO_CONSULTA = request.getParameter("TIPO_CONSULTA"); //NOME, DOCUMENTO, NUMERO_OS, ETC...
+	String KEY = request.getParameter("KEY");
+	if(temListaOs == 0){
+		session.setAttribute("temListaOs", "1");
+		//Carregar o devido bean. Criar um para que dê o retorno com o nome de qual utilizar
+		//ou cria-se um genérico que na construção dele ele mesmo saiba qual utilizar (complexo).
+	}
 %>
 
 <!--Operacional -> Consulta -> Lista -->
@@ -21,6 +25,7 @@ String KEY = request.getParameter("KEY");
     <form class="outer_form">
 		<fieldset class="fieldinner">
 		<legend><b>Resultado da busca</b></legend>
+			Número OS / Data OS / Cliente / Unidade / Tipo / Data Agendada / Técnico
 			<%String listTestesOK = "0";
 				for(int i=0; i<listTestesOK.length(); i++){%>
 					<%=listTestesOK.trim()%>

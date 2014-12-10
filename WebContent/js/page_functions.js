@@ -103,7 +103,6 @@ var cod_placa_consulta;
 
 function operacional_consulta_function(type){
 	this.cod = type || 0;
-	alert(cod);
     var values = $("input[type='radio'][name='busca_op']:checked").val();
     var adress;
     switch(values) {

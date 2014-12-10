@@ -102,6 +102,11 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 
 <!--Operacional -> Consulta -> OS-->
 <div id="operacional-consulta-os-content">
+<%
+	session.setAttribute("temListaOs", "0");
+	String temListaOs = session.getAttribute("temListaOs").toString();
+%>
+	temListaOs = <%=temListaOs%>
     <ul class="nav nav-tabs">
 		<li class="active"><a href="#numOs" data-toggle="tab">Número</a></li>
 		<li><a href="#veiculo" data-toggle="tab">Veículo</a></li>

@@ -189,11 +189,10 @@ public class ProcessarAgendamentoServiceServlet extends HttpServlet {
 				daoUnidadesAgendadas.setPkList(pkListUnidadeAgendada);
 				daoUnidadesAgendadas.delete();
 			}
-			
 		}catch(Exception e){
 			out.println("Error on ProcessarAgendamentoServiceServlet... " + ' ' + e.getMessage());
 		}
-		response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+		response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

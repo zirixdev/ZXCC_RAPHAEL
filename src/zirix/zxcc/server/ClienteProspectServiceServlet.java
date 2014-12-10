@@ -35,7 +35,6 @@ public class ClienteProspectServiceServlet extends HttpServlet{
 		   response.setContentType("text/html");
 		   PrintWriter out = response.getWriter();
 		   String OP_CODE = request.getParameter("OP_CODE");
-		   String COD_USUARIO = request.getParameter("COD_USUARIO").trim();
 		   try{
 			   ClienteProspeccaoDAO daoClienteProspeccao = new ClienteProspeccaoDAO();
 			   PkList pkList;
@@ -112,7 +111,7 @@ public class ClienteProspectServiceServlet extends HttpServlet{
 		   }catch (Exception e){
 				   out.println("Error on ClienteProspectServiceServlet... " + ' ' + e.getMessage());
 		   }
-		   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+		   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}

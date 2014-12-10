@@ -197,8 +197,7 @@ public class ClienteServiceServlet extends HttpServlet {
 						   out.println("Error on ClienteServiceServlet... " + "\nCOD_CLIENTE n�o encontrado! ");
 					   }
 				   }
-				   String COD_USUARIO = request.getParameter("COD_USUARIO").trim();
-				   response.sendRedirect(ZXMain.URL_ADRESS_ + "/zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+				   response.sendRedirect(ZXMain.URL_ADRESS_ + "/zx_cc.jsp");
 			   }else if (OP_CODE.compareTo("DELETE") == 0){
 				   String COD_CLIENTE = request.getParameter("COD_CLIENTE");
 				   pkList = ClienteDAO.createKey("COD_CLIENTE", Integer.parseInt(COD_CLIENTE));

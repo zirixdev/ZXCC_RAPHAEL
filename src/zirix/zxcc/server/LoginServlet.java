@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
 		    if (((Integer)retVal[0]) != null){
 		    	HttpSession session = request.getSession();
 	            session.setAttribute("user", retVal[0].toString().trim());
+	            session.setAttribute("temListaOs", "0");
 		    	int minutos = 1;
 	            session.setMaxInactiveInterval(minutos*60);
 		    	response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");

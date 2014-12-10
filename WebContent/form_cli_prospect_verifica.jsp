@@ -8,10 +8,16 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 
 <%@ page import="zirix.zxcc.server.*,zirix.zxcc.server.dao.*,java.sql.SQLException,java.util.Vector" %>
 <%
+	String user = null;
+	if(session.getAttribute("user") == null){
+		response.setContentType("text/html");
+		response.sendRedirect("index.html");
+	}else{
+		user = (String) session.getAttribute("user");
+	}
 	String WORK_ID = request.getParameter("WORK_ID");
-	String pkVal = request.getParameter("COD_USUARIO");
 	if(WORK_ID.compareTo("0") != 0){
-		ScheduleBean bean = new ScheduleBean(pkVal);
+		ScheduleBean bean = new ScheduleBean(user);
 		bean.setStartTimestamp(WORK_ID);
 	}
 %>

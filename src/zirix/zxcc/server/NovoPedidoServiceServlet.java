@@ -337,7 +337,7 @@ public class NovoPedidoServiceServlet extends HttpServlet {
 						out.println("Error on NovoPedidoServiceServlet... " + "\nNUM_PEDIDO n�o encontrado! ");
 					}
 				}
-			}response.sendRedirect(ZXMain.URL_ADRESS_ + "services/startservlet?OP_CODE=STARTFLUX&COD_USUARIO=" + COD_USUARIO + "&PROCESS_ID=1&PK_COLUMN=" + pkCodPedido);
+			}response.sendRedirect(ZXMain.URL_ADRESS_ + "services/startservlet?OP_CODE=STARTFLUX&PROCESS_ID=1&PK_COLUMN=" + pkCodPedido);
 		}catch(Exception e){
 			out.println("Error on ClienteServiceServlet... " + ' ' + e.getMessage());
 		}

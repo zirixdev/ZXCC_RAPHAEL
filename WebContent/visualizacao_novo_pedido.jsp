@@ -7,16 +7,22 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 -->
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ page import="zirix.zxcc.server.*,zirix.zxcc.server.dao.*,java.sql.SQLException,java.util.Vector" %>
-
 <%
+	String user = null;
+	if(session.getAttribute("user") == null){
+		response.setContentType("text/html");
+		response.sendRedirect("index.html");
+	}else{
+		user = (String) session.getAttribute("user");
+	}
+
 	String[] PK_OBJ = {request.getParameter("PK_OBJ")};
 	String WORK_ID = request.getParameter("WORK_ID");
-	String COD_USUARIO = request.getParameter("COD_USUARIO");
 	String AREA = request.getParameter("AREA");
 	NovoPedidoServiceBean beanPedido = new NovoPedidoServiceBean(PK_OBJ);
 	String[] pkCodCliente = {beanPedido.getCodCliente()};
 	ClienteServiceBean beanCliente = new ClienteServiceBean(pkCodCliente);
-	ScheduleBean bean = new ScheduleBean(COD_USUARIO);
+	ScheduleBean bean = new ScheduleBean(user);
 	bean.setStartTimestamp(WORK_ID);
 %>
 <!--Comercial -> Novo Pedido-->

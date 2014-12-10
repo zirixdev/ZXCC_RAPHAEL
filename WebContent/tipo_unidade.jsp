@@ -13,7 +13,7 @@ TECNOLOGIAS UTILIZADAS: HTML5 E JSP
         <legend>Veículo:</legend>
         Placa: <input type="text" id="placa" class="size_15" maxlength="8">
         Chassi: <input type="text" id="chassi" class="size_20" maxlength="23">
-        Renavan: <input type="text" id="renavan" class="size_20" maxlength="23" onkeypress="javascript: return EntradaNumerico(event);">
+        Renavan: <input type="text" id="renavan" class="size_19" maxlength="23" onkeypress="javascript: return EntradaNumerico(event);">
         <br>
         <%int ano = Integer.parseInt(new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()))+1;%>
         Ano de Fabricação:<input type="number" id="ano_fab" class="size_11" min="1930" max="<%=ano%>" onkeypress="javascript: return EntradaNumerico(event);">

@@ -25,7 +25,6 @@ public class SeparacaoEquipamentoServiceServlet extends HttpServlet {
 	   System.err.println("\n Cheguei no SeparacaoEquipamentoServiceServlet");
 	   response.setContentType("text/html");
 	   PrintWriter out = response.getWriter();
-	   String COD_USUARIO = request.getParameter("COD_USUARIO").trim();
 	   try{
 		   System.err.println("\n Entrei no Try SeparacaoEquipamentoServiceServlet");
 		   String QTD_UNIDADE = request.getParameter("QTD_UNIDADE").trim();
@@ -55,7 +54,7 @@ public class SeparacaoEquipamentoServiceServlet extends HttpServlet {
 	   }catch (Exception e){
 		   out.println("Error on SeparacaoEquipamentoServiceServlet... " + e.getMessage());
 	   }
-	   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+	   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 }

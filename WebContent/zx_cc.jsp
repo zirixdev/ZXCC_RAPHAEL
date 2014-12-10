@@ -16,15 +16,9 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
 	}else{
 		user = (String) session.getAttribute("user");
 	}
-	/*String msg = null;
-	if(session.getAttribute("msg") != null){
-		msg = (String) session.getAttribute("msg");
-	}*/
 	String sessionId = null;
 	sessionId = (String) session.getId();
-%>
 
-<%
 	String[] pkVal = {user};
 	ZxAccessControlBean bean = new ZxAccessControlBean(pkVal);
 	Vector<String[]> permissaoUsuarioList = bean.getPermissaoUsuario();
@@ -315,7 +309,7 @@ TECNOLOGIAS UTILIZADAS: HTML5, JAVASCRIPT E JSP
                 	</iframe>
                 </section>
                 <section class="conteudo">
-                <%if(ZXMain.LOCAL_.compareTo("DEV") == 0){%>
+                <%if(ZXMain.LOCAL_.compareTo("BETA") == 0){%>
 	                <br>
 	                <br>
 	                <br>

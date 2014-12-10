@@ -245,7 +245,7 @@ public class AgendamentoServiceServlet extends HttpServlet {
 		}catch(Exception e){
 			out.println("Error on AgendamentoServiceServlet... " + ' ' + e.getMessage());
 		}
-		response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+		response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
