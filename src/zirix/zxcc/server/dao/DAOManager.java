@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - DAO MANAGER
-DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUï¿½ï¿½ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -31,9 +31,7 @@ public class DAOManager {
         try{
         	
         	Connection con = src.getConnection();
-			if(ZXMain.LOCAL_.compareTo("SQLSERVER") != 0){
-				con.setAutoCommit(true);
-			}
+		con.setAutoCommit(true);
 
         	return con;
         }

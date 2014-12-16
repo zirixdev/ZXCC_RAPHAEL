@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - CLIENTE PROSPECT SERVICE BEAN
-DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -10,7 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import zirix.zxcc.server.dao.*;
+import zirix.zxcc.server.dao.ClienteProspeccaoDAO;
+import zirix.zxcc.server.dao.DAOManager;
+import zirix.zxcc.server.dao.PkList;
 
 public class ClienteProspectServiceBean {
 

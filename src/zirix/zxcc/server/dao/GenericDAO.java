@@ -1,7 +1,7 @@
 /*ZIRIX CONTROL CENTER - GENERIC DAO
-DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUï¿½ï¿½ES EM RASTREAMENTO LTDA.
 
-DESENVOLVEDOR: M�RIO DE S� VERA
+DESENVOLVEDOR: Mï¿½RIO DE Sï¿½ VERA
 TECNOLOGIAS UTILIZADAS: JAVA*/
 
 package zirix.zxcc.server.dao;
@@ -326,7 +326,6 @@ public abstract class GenericDAO<T> {
     			query = query.concat(",");
     	}
 
-    	System.err.println("\n\n Query = " + query);
         try
         {
 	        stmt = con.prepareStatement(query);
@@ -451,40 +450,114 @@ public abstract class GenericDAO<T> {
         }            	                    	       	   
     }
 
-    public void delete() throws SQLException{
-    	String query = "DELETE FROM " + getTableName() + " WHERE ";
-        PreparedStatement stmt = null;
-        Connection con = DAOManager.getInstance().getConnection();
-        if (!db_sync_) throw new SQLException("DAO state not in sync with database while DELETE call " + query);
-        try{
-        	Iterator<String> kit = getPkList().keySet().iterator();
-        	while (kit.hasNext()){
-        		String key = kit.next();
+    public void delete() throws SQLException {
+    	if(getCanDelete()){
+	    	String query = "DELETE FROM " + getTableName() + " WHERE ";
+	
+	        PreparedStatement stmt = null;
+	        Connection con = DAOManager.getInstance().getConnection();
+	
+	        if (!db_sync_) throw new SQLException("DAO state not in sync with database while DELETE call " + query);
+	
+	        try
+	        {
+	        	// Pks only...
+	        	Iterator<String> kit = getPkList().keySet().iterator();
+	        	while (kit.hasNext()) {
+	        		String key = kit.next();
+	        		query = query.concat(key + "=?");
+	        		if (kit.hasNext())
+	        			query = query.concat(",");
+	        	}
+	
+		        stmt = con.prepareStatement(query);
+	
+		        Iterator<Integer> vit = getPkList().values().iterator();
+		        int i = 1;
+	        	while (vit.hasNext()) {
+	        		Object value = vit.next();
+	        		stmt.setObject(i++, value);
+	        	}
+	
+	            stmt.executeUpdate();
+	
+	            db_sync_ = false;
+	        }
+	
+	        catch(SQLException e){
+	
+	            db_sync_ = false;
+	            throw e;
+	
+	        }
+	
+	        finally {
+				if(ZXMain.LOCAL_.compareTo("SQLSERVER") == 0){
+	        		con.commit();
+	    		}
+	        	if (stmt != null) stmt.close();
+	        	DAOManager.getInstance().closeConnection(con);
+	        }
+    	}
+    	else{
+    		if (getPkList().isEmpty()) throw new SQLException("no pk to update on table " + getTableName());
+
+
+    		String query = "UPDATE " + getTableName() + " SET deleted = 1";
+    		PreparedStatement stmt = null;
+            Connection con = DAOManager.getInstance().getConnection();
+
+    		query = query.concat(" WHERE ");
+
+        	// PKs then...
+        	Iterator<String> kit2 = getPkList().keySet().iterator();
+        	while (kit2.hasNext()) {
+        		String key = kit2.next();
         		query = query.concat(key + "=?");
-        		if (kit.hasNext())
+        		if (kit2.hasNext())
         			query = query.concat(",");
         	}
-	        stmt = con.prepareStatement(query);
-	        Iterator<Integer> vit = getPkList().values().iterator();
-	        int i = 1;
-        	while (vit.hasNext()){
-        		Object value = vit.next();
-        		stmt.setObject(i++, value);
-        	}
-            stmt.executeUpdate();
-            db_sync_ = false;
-        }
-        catch(SQLException e){
-            db_sync_ = false;
-            throw e;
-        }
-        finally{
-			if(ZXMain.LOCAL_.compareTo("SQLSERVER") == 0){
-        		con.commit();
-    		}
-        	if (stmt != null) stmt.close();
-        	DAOManager.getInstance().closeConnection(con);
-        }
+        	try
+            {            	
+    	        stmt = con.prepareStatement(query);
+
+    	    	// Atts first...
+    	        Iterator<Object> vit2 = getAttList().values().iterator();
+    	      
+    	        int i=1;
+    	    	while (vit2.hasNext()) {
+    	    		Object value = vit2.next();
+    	    		stmt.setObject(i++, value);        		        		
+    	    	}
+    	        	        	        	       
+    	        // PKs then...
+    	        Iterator<Integer> vit1 = getPkList().values().iterator();
+    	        
+    	    	while (vit1.hasNext()) {
+    	    		Object value = vit1.next();
+    	    		stmt.setObject(i++, value);        		        		
+    	    	}	    
+    	    	
+    	        stmt.executeUpdate();
+    	        
+    	        db_sync_ = true;
+            }
+                           
+            catch(SQLException e){ 
+            	
+                db_sync_ = false;
+                throw e; 
+                
+            }
+            
+            finally {
+    			if(ZXMain.LOCAL_.compareTo("SQLSERVER") == 0){
+            		con.commit();
+        		}
+            	if (stmt != null) stmt.close();
+            	DAOManager.getInstance().closeConnection(con);
+            }            	                    	       	   
+    	}
     }
 
     //
@@ -494,7 +567,7 @@ public abstract class GenericDAO<T> {
     private AttList attList_;
     private PkList pkList_;
     private boolean autoIncrement_;
-	public boolean canDelete_ = false;
+    public boolean canDelete_ = false;
     
     // are you up to date with the database
     private boolean db_sync_ = false;

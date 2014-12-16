@@ -1,5 +1,5 @@
-/*ZIRIX CONTROL CENTER - INSTALA��O DAO
-DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+/*ZIRIX CONTROL CENTER - INSTALAÇÃO DAO
+DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -24,7 +24,7 @@ public class InstalacaoDAO extends GenericDAO<InstalacaoDAO> {
     	super(TABLENAME);
     }
         
-    public PkList createKey(String name,int value) {
+    public static PkList createKey(String name,int value) {
 		
 		PkList key = new PkList();		
 		key.put(name, new Integer(value));

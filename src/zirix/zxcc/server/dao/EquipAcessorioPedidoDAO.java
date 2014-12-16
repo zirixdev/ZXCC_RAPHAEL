@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - EQUIPAMENTO E ACESSORIO DAO
-DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUÃ‡Ã•ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -28,7 +28,7 @@ public class EquipAcessorioPedidoDAO extends GenericDAO<EquipAcessorioPedidoDAO>
 		key.put(name, new Integer(value));
 
 		return key;				
-	}
+    }
 
     public void loadAttsFromResultSet(ResultSet res) throws SQLException {
 

@@ -2,9 +2,6 @@ package zirix.zxcc.server;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import zirix.zxcc.server.dao.*;
+import zirix.zxcc.server.mock.MockEvaluator;
+import zirix.zxcc.server.mock.MockSchedule;
 @WebServlet( name="ProcessarAgendamentoServiceServlet", urlPatterns = {"/services/processaragendamento"}, loadOnStartup=1)
 public class ProcessarAgendamentoServiceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,7 +27,7 @@ public class ProcessarAgendamentoServiceServlet extends HttpServlet {
 		int PK_COLUMN = Integer.parseInt(request.getParameter("PK_COLUMN"));
 		int arraysize = 0;
 
-		Evaluator eval = new Evaluator(Integer.parseInt(WORK_ID));
+		MockEvaluator eval = new MockEvaluator(Integer.parseInt(WORK_ID));
 		try {
 			UnidadesAgendadasDAO daoUnidadesAgendadas = new UnidadesAgendadasDAO();
 			OsDAO daoOs = new OsDAO();
@@ -91,108 +90,21 @@ public class ProcessarAgendamentoServiceServlet extends HttpServlet {
 				daoOs.update();
 				if(WORK_ID.compareTo("0") != 0){
 					if(eval.endWork()){
-						Schedule sched = new Schedule(Integer.parseInt(WORK_ID));
+						MockSchedule sched = new MockSchedule(Integer.parseInt(WORK_ID));
 						sched.changeState(PK_COLUMN);
 					}
 				}
-				int pkInstalacao = 0;
-				int count = 0;
-				Vector<String[]> CountInstalacao_ = new Vector<String[]>();
-				try {
-					ArrayList<Object[]> values = DAOManager.getInstance().executeQuery("SELECT COUNT(*) "
-							+														   "  FROM " + ZXMain.DB_NAME_ + "INSTALACAO "
-							+														   " WHERE COD_MODULO = 1 "
-							+														   "   AND COD_UNIDADE = 1 "
-							+														   "   AND DELETED = 0 ");
-					for (int i=0;i < values.size();i++) {
-						String[] attList = new String[1];
-						attList[0] = values.get(i)[0].toString();
-						CountInstalacao_.add(attList);
-					}
-				}catch (SQLException ex) {
-					ex.printStackTrace();
-				}finally{
-					count = Integer.parseInt(CountInstalacao_.elementAt(0)[0].trim());
-				}
-				if(count == 0){
-					InstalacaoDAO daoInstalacao = new InstalacaoDAO();
-					daoInstalacao.setAttValueFor("COD_MODULO", 1);
-					daoInstalacao.setAttValueFor("COD_UNIDADE", 1);
-					daoInstalacao.setAttValueFor("DELETED", 0);
-					daoInstalacao.Create();
-				}
-				Vector<String[]> CodInstalacao_ = new Vector<String[]>();
-				try {
-					ArrayList<Object[]> values = DAOManager.getInstance().executeQuery("SELECT COD_INSTALACAO "
-							+														   "  FROM " + ZXMain.DB_NAME_ + "INSTALACAO "
-							+														   " WHERE COD_MODULO = 1 "
-							+														   "   AND COD_UNIDADE = 1 "
-							+														   "   AND DELETED = 0 ");
-					for (int i=0;i < values.size();i++) {
-						String[] attList = new String[1];
-						attList[0] = values.get(i)[0].toString();
-						CodInstalacao_.add(attList);
-					}
-				}catch (SQLException ex) {
-					ex.printStackTrace();
-				}finally{
-					pkInstalacao = Integer.parseInt(CodInstalacao_.elementAt(0)[0].trim());
-				}
-				int ID_MODULO = Integer.parseInt(request.getParameter("ID_MODULO").trim());
-				PkList pkListModulo;
-				ModuloDAO daoModulo = new ModuloDAO();
-				pkListModulo = daoModulo.createKey("COD_MODULO", ID_MODULO);
-				daoModulo.setPkList(pkListModulo);
-				daoModulo.setAttValueFor("COD_INSTALACAO",pkInstalacao);
-				int pkCodCliente = 0;
-				int pkUnidade = 0;
-				Vector<String[]> UnidAgendadas_ = new Vector<String[]>();
-				try {
-					ArrayList<Object[]> values = DAOManager.getInstance().executeQuery("SELECT VEICULO.COD_CLIENTE "
-							+ 														   "     , UNIDADES_AGENDADAS.COD_UNIDADE"
-							+														   "  FROM " + ZXMain.DB_NAME_ + "UNIDADES_AGENDADAS "
-							+														   "     , " + ZXMain.DB_NAME_ + "VEICULO "
-							+														   " WHERE VEICULO.COD_VEICULO = UNIDADES_AGENDADAS.COD_UNIDADE "
-							+														   "   AND UNIDADES_AGENDADAS.TIPO_UNIDADE = 2 "
-							+														   "   AND UNIDADES_AGENDADAS.COD_UNIDADES_AGENDADAS = " + COD_UNIDADES_AGENDADAS);
-					for (int i=0;i < values.size();i++) {
-						String[] attList = new String[2];
-						attList[0] = values.get(i)[0].toString();
-						attList[1] = values.get(i)[1].toString();
-						UnidAgendadas_.add(attList);
-					}
-				}catch (SQLException ex) {
-					ex.printStackTrace();
-				}finally{
-					pkCodCliente = Integer.parseInt(UnidAgendadas_.elementAt(0)[0].trim());
-					pkUnidade = Integer.parseInt(UnidAgendadas_.elementAt(0)[1].trim());
-				}
-				daoModulo.setAttValueFor("COD_CLIENTE",pkCodCliente);
-				daoModulo.update();
-				PkList pkListInstalcao;
-				InstalacaoDAO daoInstalacao = new InstalacaoDAO();
-				pkListInstalcao = daoInstalacao.createKey("COD_INSTALACAO", pkInstalacao);
-				daoInstalacao.setPkList(pkListInstalcao);
-				daoInstalacao.setAttValueFor("COD_MODULO",ID_MODULO);
-				daoInstalacao.setAttValueFor("COD_UNIDADE",2);
-				daoInstalacao.setAttValueFor("COD_VEICULO",pkUnidade);
-				daoInstalacao.update();
-				PkList pkListVeiculo;
-				VeiculoDAO daoVeiculo = new VeiculoDAO();
-				pkListVeiculo = daoVeiculo.createKey("COD_VEICULO", pkUnidade);
-				daoVeiculo.setPkList(pkListVeiculo);
-				daoVeiculo.setAttValueFor("COD_INSTALACAO",pkInstalacao);
-				daoVeiculo.update();
 			}else if (OP_CODE.compareTo("DELETE") == 0){
 				String COD_UNIDADES_AGENDADAS = request.getParameter("COD_UNIDADES_AGENDADAS").trim();
 				pkListUnidadeAgendada = UnidadesAgendadasDAO.createKey("COD_UNIDADES_AGENDADAS", Integer.parseInt(COD_UNIDADES_AGENDADAS));
 				daoUnidadesAgendadas.setPkList(pkListUnidadeAgendada);
 				daoUnidadesAgendadas.delete();
 			}
+			
 		}catch(Exception e){
 			out.println("Error on ProcessarAgendamentoServiceServlet... " + ' ' + e.getMessage());
 		}
-		response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
+		response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

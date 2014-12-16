@@ -29,9 +29,10 @@ public class OsDAO extends GenericDAO<PedidoDAO> {
 		key.put(name, new Integer(value));
 
 		return key;
-	}
+    }
             
     public void loadAttsFromResultSet(ResultSet res) throws SQLException {
+
     	setAttValueFor("COD_NUM_OS",res.getInt("COD_NUM_OS"));
     	setAttValueFor("COD_TECNICO",res.getInt("COD_TECNICO"));
     	setAttValueFor("ARRAIVE_TIME",res.getTime("ARRAIVE_TIME"));

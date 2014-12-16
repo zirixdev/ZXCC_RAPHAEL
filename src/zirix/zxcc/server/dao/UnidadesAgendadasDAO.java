@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - UNIDADES AGENDADAS DAO
-DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUï¿½ï¿½ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -12,7 +12,9 @@ import java.util.Set;
 
 import zirix.zxcc.server.*;
 
-public class UnidadesAgendadasDAO extends GenericDAO<ObsPedidoDAO> {
+public class UnidadesAgendadasDAO extends GenericDAO<UnidadesAgendadasDAO> {
+
+
     public UnidadesAgendadasDAO(PkList pkList) {
         super(TABLENAME,pkList);
     }
@@ -30,6 +32,7 @@ public class UnidadesAgendadasDAO extends GenericDAO<ObsPedidoDAO> {
 	} 
             
     public void loadAttsFromResultSet(ResultSet res) throws SQLException {
+
     	setAttValueFor("COD_AGENDAMENTO",res.getInt("COD_AGENDAMENTO"));
     	setAttValueFor("COD_UNIDADE",res.getInt("COD_UNIDADE"));
     	setAttValueFor("TIPO_UNIDADE",res.getInt("TIPO_UNIDADE"));

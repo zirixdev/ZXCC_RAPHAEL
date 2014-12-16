@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - CLIENTE SERVICE BEAN
-DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUï¿½ï¿½ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -9,7 +9,9 @@ package zirix.zxcc.server;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
-import zirix.zxcc.server.dao.*;
+import zirix.zxcc.server.dao.ClienteDAO;
+import zirix.zxcc.server.dao.DAOManager;
+import zirix.zxcc.server.dao.PkList;
 
 public class ClienteServiceBean {
 
