@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - ZX MAIN
-DESENVOLVIDO POR ZIRIX SOLUÃ‡Ã•ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -8,9 +8,9 @@ package zirix.zxcc.server;
 
 public class ZXMain {
 
-	public static String URL_ADRESS_= "";
-	public static String DB_NAME_= "";
-	public static String LOCAL_= "";
+	public static String URL_ADRESS_= null;
+	public static String DB_NAME_= null;
+	public static String LOCAL_= null;
 
 	public static void main(String[] args) {
 

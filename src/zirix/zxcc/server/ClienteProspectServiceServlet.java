@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - CLIENTE PROSPECT SERVICE SERVLET
-DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -18,12 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import zirix.zxcc.server.dao.ClienteProspeccaoDAO;
-import zirix.zxcc.server.dao.ContatoProspeccaoDAO;
-import zirix.zxcc.server.dao.DAOManager;
-import zirix.zxcc.server.dao.EmailProspeccaoDAO;
-import zirix.zxcc.server.dao.PkList;
-import zirix.zxcc.server.mock.*;
+import zirix.zxcc.server.dao.*;
 
 @WebServlet( name="ClienteService", urlPatterns = {"/services/prospect"}, loadOnStartup=1)
 public class ClienteProspectServiceServlet extends HttpServlet{
@@ -40,7 +35,6 @@ public class ClienteProspectServiceServlet extends HttpServlet{
 		   response.setContentType("text/html");
 		   PrintWriter out = response.getWriter();
 		   String OP_CODE = request.getParameter("OP_CODE");
-		   String COD_USUARIO = request.getParameter("COD_USUARIO").trim();
 		   try{
 			   ClienteProspeccaoDAO daoClienteProspeccao = new ClienteProspeccaoDAO();
 			   PkList pkList;
@@ -105,7 +99,7 @@ public class ClienteProspectServiceServlet extends HttpServlet{
 							   daoEmailProspeccao.Create();
 						   }
 					   }else{
-						   out.println("Error on ClienteProspectServiceServlet... " + "\nCOD_CLIENTE não encontrado! ");
+						   out.println("Error on ClienteProspectServiceServlet... " + "\nCOD_CLIENTE n�o encontrado! ");
 					   }
 				   }
 			   }else if(OP_CODE.compareTo("DELETE") == 0){
@@ -117,7 +111,7 @@ public class ClienteProspectServiceServlet extends HttpServlet{
 		   }catch (Exception e){
 				   out.println("Error on ClienteProspectServiceServlet... " + ' ' + e.getMessage());
 		   }
-		   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+		   response.sendRedirect(ZXMain.URL_ADRESS_ + "zx_cc.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}

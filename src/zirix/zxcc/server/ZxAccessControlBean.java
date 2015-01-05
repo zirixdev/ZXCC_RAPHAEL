@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - ZX ACCESS CONTROL BEAN
-DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -10,10 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import zirix.zxcc.server.dao.UsuarioDAO;
-import zirix.zxcc.server.dao.DAOManager;
-import zirix.zxcc.server.dao.PkList;
-
+import zirix.zxcc.server.dao.*;
 
 public class ZxAccessControlBean {
 
@@ -55,7 +52,7 @@ public class ZxAccessControlBean {
 					+ "                                                          WHERE " + ZXMain.DB_NAME_ + "PERMISSAO_USUARIO.COD_USUARIO = " + COD_USUARIO_);
 
 		    for (int i=0;i < values.size();i++) {
-			    String[] attList = new String[2]; // pois eu sei que sao 2 atributos de fato !
+			    String[] attList = new String[2];
 			    attList[0] = values.get(i)[0].toString();
 			    attList[1] = values.get(i)[1].toString();
 			    PermissaoUsuario.add(attList);
@@ -75,7 +72,7 @@ public class ZxAccessControlBean {
 					+ "                                                           FROM " + ZXMain.DB_NAME_ + "TELA ");
 
 		    for (int i=0;i < values.size();i++) {
-			    String[] attList = new String[1]; // pois eu sei que é 1 atributo de fato !
+			    String[] attList = new String[1];
 			    attList[0] = values.get(i)[0].toString();
 			    CodTela.add(attList);
 		    }

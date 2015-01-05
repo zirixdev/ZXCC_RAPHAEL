@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - CLIENTE SERVICE SERVLET
-DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -18,13 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import zirix.zxcc.server.dao.ClienteDAO;
-import zirix.zxcc.server.dao.ContatoClienteDAO;
-import zirix.zxcc.server.dao.DAOManager;
-import zirix.zxcc.server.dao.DocumentoClienteDAO;
-import zirix.zxcc.server.dao.EmailCliVenDAO;
-import zirix.zxcc.server.dao.EnderecoClienteDAO;
-import zirix.zxcc.server.dao.PkList;
+import zirix.zxcc.server.dao.*;
 
 @WebServlet( name="ClienteService", urlPatterns = {"/services/cliente"}, loadOnStartup=1)
 public class ClienteServiceServlet extends HttpServlet {
@@ -200,11 +194,10 @@ public class ClienteServiceServlet extends HttpServlet {
 							   daoEmailCliVen.Create();
 						   }
 					   }else{
-						   out.println("Error on ClienteServiceServlet... " + "\nCOD_CLIENTE não encontrado! ");
+						   out.println("Error on ClienteServiceServlet... " + "\nCOD_CLIENTE n�o encontrado! ");
 					   }
 				   }
-				   String COD_USUARIO = request.getParameter("COD_USUARIO").trim();
-				   response.sendRedirect(ZXMain.URL_ADRESS_ + "/zx_cc.jsp?COD_USUARIO=" + COD_USUARIO);
+				   response.sendRedirect(ZXMain.URL_ADRESS_ + "/zx_cc.jsp");
 			   }else if (OP_CODE.compareTo("DELETE") == 0){
 				   String COD_CLIENTE = request.getParameter("COD_CLIENTE");
 				   pkList = ClienteDAO.createKey("COD_CLIENTE", Integer.parseInt(COD_CLIENTE));

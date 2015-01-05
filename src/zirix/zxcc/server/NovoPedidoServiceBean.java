@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - CHIP SERVICE BEAN
-DESENVOLVIDO POR ZIRIX SOLUï¿½ï¿½ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -155,6 +155,7 @@ public class NovoPedidoServiceBean {
 		Vector<String[]> countUnidades = new Vector<String[]>();
 		try{
 			ArrayList<Object[]> values = DAOManager.getInstance().executeQuery("SELECT COUNT(UNIDADES_AGENDADAS.COD_UNIDADE) as CONTADOR "
+					+ 														   "     , VEICULO.COD_VEICULO "
 					+ 														   "  FROM " + ZXMain.DB_NAME_ + "UNIDADES_AGENDADAS "
 					+ 														   "     , " + ZXMain.DB_NAME_ + "VEICULO "
 					+ 														   " WHERE UNIDADES_AGENDADAS.COD_UNIDADE IN (VEICULO.COD_VEICULO) "
@@ -162,8 +163,9 @@ public class NovoPedidoServiceBean {
 					+ 														   "   AND UNIDADES_AGENDADAS.ESTADO NOT IN (2) "
 					+ 														   "   AND VEICULO.COD_PEDIDO = " + COD_PEDIDO_);
 			for (int i=0;i<values.size();i++) {
-				String[] attList = new String[1];
+				String[] attList = new String[2];
 				attList[0] = values.get(i)[0].toString();
+				attList[1] = values.get(i)[1].toString();
 				countUnidades.add(attList);
 			}
 		}catch (SQLException ex) {
@@ -174,14 +176,12 @@ public class NovoPedidoServiceBean {
 	}
 
 	@SuppressWarnings("finally")
-	public Vector<String[]> getCodUnidadesVeiculoToSched(){
+	public Vector<String[]> getCodUnidadesVeiculoToSched(String codScheded){
 		Vector<String[]> codUnidades = new Vector<String[]>();
 		try{
 			ArrayList<Object[]> values = DAOManager.getInstance().executeQuery("SELECT VEICULO.COD_VEICULO "
-					+ 														   "  FROM " + ZXMain.DB_NAME_ + "UNIDADES_AGENDADAS "
-					+ 														   "     , " + ZXMain.DB_NAME_ + "VEICULO "
-					+ 														   " WHERE UNIDADES_AGENDADAS.COD_UNIDADE NOT IN (VEICULO.COD_VEICULO) "
-					+ 														   "   AND UNIDADES_AGENDADAS.TIPO_UNIDADE = 2 "
+					+ 														   "  FROM " + ZXMain.DB_NAME_ + "VEICULO "
+					+ 														   " WHERE VEICULO.COD_VEICULO NOT IN (" + codScheded + ") "
 					+ 														   "   AND VEICULO.COD_PEDIDO = " + COD_PEDIDO_);
 			for (int i=0;i<values.size();i++) {
 				String[] attList = new String[1];

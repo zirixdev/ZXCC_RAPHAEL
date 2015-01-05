@@ -1,7 +1,7 @@
 /*ZIRIX CONTROL CENTER - CLIENTE DAO
-DESENVOLVIDO POR ZIRIX SOLUÇÕES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
 
-DESENVOLVEDOR: MÁRIO DE SÁ VERA & RAPHAEL B. MARQUES
+DESENVOLVEDOR: M�RIO DE S� VERA & RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
 
 package zirix.zxcc.server.dao;
@@ -29,23 +29,6 @@ public class ClienteDAO extends GenericDAO<ClienteDAO> {
 
 		return key;
 	}
-
-    /*
-     * Temos de tratar a FK
-     * @see zirix.zxcc_prod.server.dao.GenericDAO#delete()
-     */
-    /*public void delete() throws SQLException {
-    	String query1 = "DELETE FROM CONTATO_CLIENTE WHERE COD_CLIENTE=\'" + getPkValueFor("COD_CLIENTE") + "\'";
-    	String query2 = "DELETE FROM DOCUMENTO_CLIENTE WHERE COD_CLIENTE=\'" + getPkValueFor("COD_CLIENTE") + "\'";
-    	String query3 = "DELETE FROM VEICULO WHERE COD_CLIENTE=\'" + getPkValueFor("COD_CLIENTE") + "\'";
-    	String query4 = "DELETE FROM MODULO WHERE COD_CLIENTE=\'" + getPkValueFor("COD_CLIENTE") + "\'";
-
-    	DAOManager.getInstance().executeQuery(query1);
-    	DAOManager.getInstance().executeQuery(query2);
-    	DAOManager.getInstance().executeQuery(query3);
-    	DAOManager.getInstance().executeQuery(query4);
-
-    }*/
 
     public void loadAttsFromResultSet(ResultSet res) throws SQLException {
     	setAttValueFor("NOME",res.getString("NOME"));

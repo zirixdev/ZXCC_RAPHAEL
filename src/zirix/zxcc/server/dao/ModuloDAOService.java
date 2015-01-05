@@ -1,5 +1,5 @@
 /*ZIRIX CONTROL CENTER - MODULO DAO SERVICE
-DESENVOLVIDO POR ZIRIX SOLUï¿½ï¿½ES EM RASTREAMENTO LTDA.
+DESENVOLVIDO POR ZIRIX SOLU��ES EM RASTREAMENTO LTDA.
 
 DESENVOLVEDOR: RAPHAEL B. MARQUES
 TECNOLOGIAS UTILIZADAS: JAVA*/
@@ -46,7 +46,7 @@ public class ModuloDAOService {
 				+ 	   "  FROM " + ModuloDAO.TABLENAME  
 				+	   " WHERE COD_CLIENTE = 1 "
 				+ 	   "   AND DELETED = 0 "
-				+ 	   "   AND ESTADO_MODULO = 1 ";
+				+ 	   "   AND COD_ESTADO = 1 ";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet res = null;
